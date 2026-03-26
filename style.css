@@ -1,151 +1,105 @@
 @import "../omarchy/current/theme/waybar.css";
-@define-color border alpha(@foreground,0.15);
+@define-color border alpha(@foreground,0.3);
 @define-color warning #F89F63;
 @define-color succes #4BCD75;
 @define-color critical #FF5C5C;
-
 * {
   background-color: @background;
   color: @foreground;
+
   border: none;
   border-radius: 0;
   min-height: 0;
-  font-family: 'JetBrainsMono Nerd Font';
+  font-family: "JetBrainsMono Nerd Font";
   font-size: 12px;
 }
 
-#left1{
-  color: @foreground;
-  margin: 0px 1px 0px 1px;
-}
-#left3{
-  margin: 0px 1px 0px 1px;
-}
-
-.modules-center {
-  color: @foreground;
-  margin: 0px 1px 0px 1px;
- }
 .modules-right {
-  margin: 1px 1px 1px 1px;
-  color: @foreground;
+  margin-right: 3px;
 }
-
-
-#workspaces {
-    /* border-radius:0px; */
-    margin: 4px 3px;
-    /* border:1px groove @border; */
+#custom-separator {
+  color: @border;
+  margin: 0px 4px;
 }
-
 #workspaces button {
-    padding:1px 2px;
-    margin:0px 1px;
-    color: @foreground; 
-    transition: all 0.3s ease-in-out;
+  all: initial;
+  padding: 0 6px;
+  margin: 0 1.5px;
+  min-width: 9px;
 }
-
 
 #workspaces button.empty {
-    color: @foreground;
-    opacity: 0.30;
-    transition: all 0.3s ease-in-out;
+  opacity: 0.5;
 }
 
-
-/* #workspaces button:hover { */
-/*     color: @foreground; */
-/*     opacity: 0.9; */
-/*     background: linear-gradient(180deg, @background 90%, @foreground); */
-/* } */
-
-
-
-
-#tray,
-#group-tray-expander,
-#mpris,
 #cpu,
-#clock,
 #battery,
-#network,
 #memory,
-#bluetooth,
 #pulseaudio,
-#window,
-#power-profiles-daemon,
-#custom-update,
+#custom-omarchy,
+#custom-update {
+  min-width: 12px;
+  margin: 0 7.5px;
+}
+
+#tray {
+  margin-right: 16px;
+}
+
+#bluetooth {
+  margin-right: 17px;
+}
+
+#network {
+  margin-right: 13px;
+}
+
+#custom-expand-icon {
+  margin-right: 18px;
+}
+
+tooltip {
+  padding: 2px;
+}
+
+#custom-update {
+  font-size: 10px;
+}
+
+#clock {
+  margin-left: 8.75px;
+}
+
+.hidden {
+  opacity: 0;
+}
+
 #custom-screenrecording-indicator,
 #custom-idle-indicator,
-#custom-notification-silencing-indicator,#idle_inhibitor{
-  min-width: 14px;
-  margin: 0px 1px;
-  padding-left: 4px;
-  padding-right: 4px;
-}
-#window {
-    color: @foreground;
-    margin:0px;
-    padding:2px 0px;
-    opacity: 0.9;
+#custom-notification-silencing-indicator {
+  min-width: 12px;
+  margin: 0px 4px;
+  /* font-size: 10px; */
+  padding-bottom: 1px;
 }
 
-#clock:hover,
-#tray:hover,
-#custom-expand-icon:hover,
-#workspaces button:hover,#cpu:hover,
-#memory:hover,
-#window:hover,
-#temperature:hover,
-#battery:hover,
-#bluetooth:hover,
-#power-profiles-daemon:hover,
-#backlight:hover,
-#custom-omarchy:hover,
-#custom-weather:hover,
-#custom-update:hover,
-#idle_inhibitor:hover,
-#custom-updatespacman:hover,
-#network:hover,
-#pulseaudio:hover {
-  color: @foreground;
-  border-radius: 1px;
-  opacity: 0.9;
-  background: linear-gradient(180deg, @background 90%, @foreground);
+#custom-screenrecording-indicator.active {
+  color: #a55555;
 }
 
-
-#power-profiles-daemon.power-saver{
- color:@succes;
-}
-#power-profiles-daemon.performance{
- color:@warning;
-}
-tooltip {
- /* padding: 4px; */
- background: @background;
- border: 1px solid @border;
- border-radius: 2px;
- /* box-shadow: 1px 1px 3px 1px #131313; */
- font-size: 12px;
- 
-}
-tooltip label {
-    color: @foreground;
-    font-weight: normal;
+#custom-idle-indicator.active,
+#custom-notification-silencing-indicator.active {
+  color: @critical;
 }
 
-#mpris {
-color: @foreground;
-animation: repeat;
-	animation-name: blink;
-	animation-duration: 3s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
+#custom-voxtype {
+  min-width: 12px;
+  margin: 0 0 0 7.5px;
 }
 
-
+#custom-voxtype.recording {
+  color: #a55555;
+}
 #custom-screenrecording-indicator {
   animation-timing-function: linear;
   animation-iteration-count: infinite;
@@ -158,34 +112,22 @@ animation: repeat;
   animation-name: blink-recording;
   animation-duration: 0.5s;
 }
-
 @keyframes blink-recording {
-    to {
-        color: @background;
-    }
+  to {
+    color: @background;
+  }
 }
 
-
-
 @keyframes blink {
-    to {
-        color: #4a4a4a;
-        
-    }
+  to {
+    color: #4a4a4a;
+  }
 }
 
 @keyframes blink-inhibitor {
-    to {
-        color: @background;
-    }
-}
-
-#battery.warning {
-  color: @warning;
-  background-color: alpha(@background, 0.9);
-}
-#battery.charging{
-    color: @succes;
+  to {
+    color: @background;
+  }
 }
 
 @keyframes blink2 {
@@ -195,34 +137,32 @@ animation: repeat;
   }
 }
 
+#battery.warning {
+  color: @warning;
+  background-color: alpha(@background, 0.9);
+}
+#battery.charging {
+  color: @succes;
+}
 #battery.critical:not(.charging) {
   background-color: transparent;
   color: @critical;
-  animation-name: blink2;
-  animation-duration: 0.5s;
-  animation-timing-function: steps(12);
-  animation-iteration-count: infinite;
-  animation-direction: alternate;
 }
 #custom-update {
-  font-size: 10px;
-  color:@succes;
+  color: @succes;
 }
-
-.hidden {
-  opacity: 0;
-}
-
-#custom-notification-silencing-indicator.active {
-  color: @warning;
-}
-
-#custom-voxtype {
-  min-width: 12px;
-  margin: 0 0 0 7.5px;
-}
-
-#custom-voxtype.recording {
-  color: #a55555;
+#mpris {
+color: @foreground;
+  min-width: 14px;
+  margin: 0px 1px;
+  padding-left: 4px;
+  padding-right: 4px;
+animation: repeat;
+	animation-name: blink;
+	animation-duration: 3s;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+		  margin: 0px 1px 0px 1px;
 }
 
