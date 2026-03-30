@@ -32,9 +32,16 @@
   opacity: 0.5;
 }
 
+#custom-uptime{
+	  margin-right: 20px;
+
+}
+
+
 #cpu,
 #battery,
 #memory,
+#temperature,
 #pulseaudio,
 #custom-omarchy,
 #custom-update {
